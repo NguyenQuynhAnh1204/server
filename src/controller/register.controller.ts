@@ -24,5 +24,24 @@ export class UserController {
             })
         }
     }
+
+    async getUserId (req: Request, res: Response) : Promise<void> {
+
+        const userId = Number(req.params.userId);
+        try{
+            const user = await userService.getUserId(userId);
+            res.status(200).json({
+                success: true,
+                user
+            })
+        }
+        catch (e) {
+            res.status(500).json({
+                success: false,
+                messenger: "Server error",
+                e
+            })
+        }
+    }
 }
 

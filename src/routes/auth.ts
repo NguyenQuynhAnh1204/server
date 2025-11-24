@@ -8,7 +8,9 @@ const route = Router();
 
 const userController = new UserController();
 
-route.get("/", (req, res) => userController.getUsers(req, res));
+route.get("/", userController.getUsers);
+
+route.get("/:userId", userController.getUserId);
 
 
 export default route;

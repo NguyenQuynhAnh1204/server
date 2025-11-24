@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import userRoute from "./routes/auth";
 import proRoute from "./routes/product.route";
+import orderRoute from "./routes/order.route";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded());  // parse form data
 
 app.use('/user', userRoute);
 app.use('/product', proRoute);
+app.use('/order', orderRoute);
 
 //use static file img
 app.use('/static', express.static('/Users/admin/Documents/PhatTrienDA/'));

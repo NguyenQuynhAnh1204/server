@@ -11,5 +11,11 @@ export class UserService {
 
         return users.map(u => new UserResponse(u));
     }
+
+    async getUserId(id: number) : Promise<UserResponse> {
+        const user = await userRepo.findId(id);
+
+        return new UserResponse(user);
+    }
 }
 

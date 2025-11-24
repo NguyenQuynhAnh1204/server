@@ -9,3 +9,4 @@ export interface IProduct {
     expiry_date: Date;
     status: number;
 }
+
