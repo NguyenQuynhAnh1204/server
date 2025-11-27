@@ -10,4 +10,9 @@ export class ProductListService {
         const products = await productRepo.findAll();
         return products.map(p => new ProductResponse(p));
     }
+
+    async getQuantity(): Promise<number> {
+        const products = await productRepo.count();
+        return products;
+    }
 }

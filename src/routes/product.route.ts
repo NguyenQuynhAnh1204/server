@@ -9,7 +9,7 @@ const productController = new ProductController();
 route.get("/", productController.getProducts);
 
 
-
+route.get("/count", productController.getCount);
 
 
 export default route;

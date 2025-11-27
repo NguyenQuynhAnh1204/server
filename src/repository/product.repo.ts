@@ -18,4 +18,9 @@ export class ProductList {
         `)
         return products as IProduct[];
     }
+
+    async count(): Promise<number> {
+        const [count] = await connection.execute<any[]>("select count(*) as total from Product")
+        return  count[0].total;
+    }
 }

@@ -1,3 +1,4 @@
+import { IUserPayload } from "../interface/user.interface";
 import { UserService } from "../service/user.service";
 import { Response, Request } from "express";
 
@@ -35,10 +36,50 @@ export class UserController {
                 user
             })
         }
+
         catch (e) {
             res.status(500).json({
                 success: false,
                 messenger: "Server error",
+                e
+            })
+        }
+    }
+
+    async count(req: Request, res: Response): Promise<void> {
+        try {
+            const count = await userService.count();
+
+            res.status(200).json({
+                success: true,
+                count
+            })
+        }
+        catch (e) {
+            res.status(500).json({
+                success: false,
+                message: "Server error",
+                e
+            })
+        }
+    }
+
+    async update(req: Request, res: Response): Promise<void> {
+        const userId = Number(req.query.q);
+        const userInf = req.body as IUserPayload; 
+        const userAvt = req.file as Express.Multer.File;
+        try {
+
+            await userService.update(userId, userInf, userAvt);
+
+
+            res.status(200).json({
+                success: true,
+            })
+        }
+        catch (e) {
+            res.status(500).json({
+                success: false,
                 e
             })
         }

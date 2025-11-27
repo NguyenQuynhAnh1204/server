@@ -38,4 +38,22 @@ export class ProductController {
             })
         }
     } 
+
+    async getCount(req: Request, res: Response): Promise<void> {
+        try{
+            const count = await productService.getQuantity();
+
+            res.status(200).send({
+                success: true,
+                count
+            })
+        }
+        catch (e) {
+            res.status(500).send({
+                success: false,
+                message: "Server error",
+                e
+            })
+        }
+    }
 }

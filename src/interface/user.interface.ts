@@ -10,3 +10,11 @@ export interface IUser {
     hireDate: Date;
     isActive: boolean;
 }
+
+export interface IUserPayload {
+    name: string;
+    age: string;
+    phone: string;
+    address: string;
+    avatar: string;
+}
