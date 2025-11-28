@@ -39,5 +39,15 @@ export class UserService {
             throw e;
         }
     }
+
+    async add(userInf: IUserPayload, file: Express.Multer.File): Promise<void> {
+        try {
+            const avatar = await uploadCloudinary(file.buffer, "Avatar");
+            await userRepo.add(userInf, avatar);
+        }
+        catch (e) {
+            throw e;
+        }
+    }
 }
 

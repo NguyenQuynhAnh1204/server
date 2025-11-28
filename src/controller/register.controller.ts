@@ -84,5 +84,25 @@ export class UserController {
             })
         }
     }
+
+
+    async add(req: Request, res: Response): Promise<void> {
+        const userInf = (req.body) as IUserPayload;
+        const userAvt = (req.file) as Express.Multer.File;
+
+        try {
+            await userService.add(userInf, userAvt);
+
+            res.status(200).json({
+                success: true,
+            })
+        }   
+        catch (e) {
+            res.status(500).json({
+                success: false,
+                e
+            })
+        }
+    }
 }
 

@@ -15,6 +15,8 @@ route.get("/:userId", userController.getUserId);
 
 route.get("/count", userController.count);
 
-route.post("/update", upload.single("avatar") , userController.update)
+route.post("/update", upload.single("avatar") , userController.update);
+
+route.post("/add", upload.single("avatar"), userController.add);
 
 export default route;

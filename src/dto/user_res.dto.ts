@@ -4,8 +4,9 @@ import { coverImg } from "../helper/fileImg";
 export class UserResponse {
     id: number;
     name: string;
-    age: number;
+    birthday: Date;
     phone: string;
+    email: string;
     address: string;
     avatar: string;
     hireDate: Date;
@@ -14,8 +15,9 @@ export class UserResponse {
     constructor (user: any) {
         this.id = user.userId;
         this.name = user.userName;
-        this.age = user.age;
+        this.birthday = user.birthday;
         this.phone = user.phone;
+        this.email = user.email;
         this.address = user.address;
         this.avatar = coverImg(user.avatarUrl);
         this.hireDate = user.hireDate;
