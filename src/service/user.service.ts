@@ -1,4 +1,6 @@
 import { UserResponse } from "../dto/user_res.dto";
+import { deleteCloudinary } from "../helper/destroyClound";
+import { getPublicId } from "../helper/fileImg";
 import { uploadCloudinary } from "../helper/uploadCloud";
 import { IUserPayload } from "../interface/user.interface";
 import { UserList } from "../repository/user_list.repo";
@@ -8,10 +10,13 @@ import { UserList } from "../repository/user_list.repo";
 const userRepo = new UserList();
 
 export class UserService {
-    async getAllUser() : Promise<UserResponse[]> {
+    async getAllUser() : Promise<UserResponse[] | undefined> {
+        
         const users = await userRepo.findAll();
-
-        return users.map(u => new UserResponse(u));
+        if (users) {
+            return users.map(u => new UserResponse(u));
+        }
+        return undefined;
     }
 
     async getUserId(id: number) : Promise<UserResponse> {
@@ -32,6 +37,12 @@ export class UserService {
         try {
             if (file) {
                 avatarUrl = await uploadCloudinary(file.buffer, "Avatar");
+
+                let oldAvatar = await userRepo.getAvatar(userId);
+                if (oldAvatar) {
+                    oldAvatar = getPublicId(oldAvatar);
+                    await deleteCloudinary(oldAvatar);
+                }
             }
             await userRepo.update(userId, userInf, avatarUrl);
         }
@@ -44,6 +55,21 @@ export class UserService {
         try {
             const avatar = await uploadCloudinary(file.buffer, "Avatar");
             await userRepo.add(userInf, avatar);
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+
+    async delete(userId: number) : Promise<void> {
+        try {
+
+            let avatar = await userRepo.getAvatar(userId);
+            if (avatar) {
+                avatar = getPublicId(avatar);
+                await deleteCloudinary(avatar);
+            }
+            await userRepo.deleteUser(userId);
         }
         catch (e) {
             throw e;

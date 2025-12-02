@@ -104,5 +104,22 @@ export class UserController {
             })
         }
     }
+
+    async delete(req: Request, res: Response) : Promise<void> {
+        const userId = Number(req.params.userId);
+        try {
+            
+            await userService.delete(userId);
+            res.status(200).json({
+                success: true,
+            })
+        }   
+        catch (e) {
+            res.status(500).json({
+                success: false,
+                e
+            })
+        }
+    }
 }
 
