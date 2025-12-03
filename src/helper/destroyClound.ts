@@ -1,4 +1,4 @@
-import cloudinary from "../config/clound.config";
+import cloudinary from "../infrastructure/config/clound.config";
 
 export const deleteCloudinary = async (publicId: string) => {
     try {

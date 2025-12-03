@@ -1,5 +1,5 @@
 import connection from "../config/database.config";
-import { IOrder, IOrderDetail } from "../interface/order.interface";
+import { IOrder, IOrderDetail } from "../../domain/interface/order.interface";
 import { ResultSetHeader } from "mysql2";
 
 export class OrderRepo {

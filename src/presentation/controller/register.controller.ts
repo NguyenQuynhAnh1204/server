@@ -1,5 +1,5 @@
-import { IUserPayload } from "../interface/user.interface";
-import { UserService } from "../service/user.service";
+import { IUserPayload } from "../domain/interface/user.interface";
+import { UserService } from "../application/service/user.service";
 import { Response, Request } from "express";
 
 

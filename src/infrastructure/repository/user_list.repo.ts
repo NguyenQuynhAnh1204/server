@@ -1,5 +1,5 @@
 import connection from "../config/database.config";
-import { IUser, IUserPayload } from "../interface/user.interface";
+import { IUser, IUserPayload } from "../../domain/interface/user.interface";
 
 
 

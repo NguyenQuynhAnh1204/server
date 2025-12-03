@@ -1,9 +1,9 @@
 import { UserResponse } from "../dto/user_res.dto";
-import { deleteCloudinary } from "../helper/destroyClound";
-import { getPublicId } from "../helper/fileImg";
-import { uploadCloudinary } from "../helper/uploadCloud";
-import { IUserPayload } from "../interface/user.interface";
-import { UserList } from "../repository/user_list.repo";
+import { deleteCloudinary } from "../../helper/destroyClound";
+import { getPublicId } from "../../helper/fileImg";
+import { uploadCloudinary } from "../../helper/uploadCloud";
+import { IUserPayload } from "../../domain/interface/user.interface";
+import { UserList } from "../../infrastructure/repository/user_list.repo";
 
 
 

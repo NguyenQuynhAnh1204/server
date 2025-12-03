@@ -1,5 +1,5 @@
 import connection from "../config/database.config";
-import { ICate, IProduct, IProductDetail, IProductImport, IProductPayload, IProductStock } from "../interface/product.interface";
+import { ICate, IProduct, IProductDetail, IProductImport, IProductPayload, IProductStock } from "../../domain/interface/product.interface";
 
 
 

@@ -1,9 +1,9 @@
 import { CategoryRes, ProductDetail, ProductImport, ProductResponse, ProductStock } from "../dto/product.dto";
-import { deleteCloudinary } from "../helper/destroyClound";
-import { getPublicId } from "../helper/fileImg";
-import { uploadCloudinary } from "../helper/uploadCloud";
-import { IProductDetail, IProductPayload } from "../interface/product.interface";
-import { ProductList, CategoryRepo  } from "../repository/product.repo";
+import { deleteCloudinary } from "../../helper/destroyClound";
+import { getPublicId } from "../../helper/fileImg";
+import { uploadCloudinary } from "../../helper/uploadCloud";
+import { IProductDetail, IProductPayload } from "../../domain/interface/product.interface";
+import { ProductList, CategoryRepo  } from "../../infrastructure/repository/product.repo";
 
 
 

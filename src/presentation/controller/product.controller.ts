@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { CategorySerVice, ProductListService } from "../service/product.service";
-import { IProductDetail } from "../interface/product.interface";
+import { CategorySerVice, ProductListService } from "../../application/service/product.service";
+import { IProductDetail } from "../../domain/interface/product.interface";
 
 const productService = new ProductListService();
 const cateService = new CategorySerVice();

@@ -1,6 +1,6 @@
 import { OrderDetailDTO, OrderDTO } from "../dto/order.dto";
-import { IOrderDetail } from "../interface/order.interface";
-import { OrderRepo } from "../repository/order.repo";
+import { IOrderDetail } from "../../domain/interface/order.interface";
+import { OrderRepo } from "../../infrastructure/repository/order.repo";
 
 
 const orderRepo = new OrderRepo();

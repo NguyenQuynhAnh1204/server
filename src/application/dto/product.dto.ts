@@ -1,4 +1,4 @@
-import { coverImg } from "../helper/fileImg";
+import { coverImg } from "../../helper/fileImg";
 
 
 export class ProductResponse {
